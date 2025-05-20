@@ -5,24 +5,25 @@ const eventSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
+      required: [true, 'Title is required.'],
     },
     description: {
       type: String,
-      required: true,
+      required: [true, 'Description is required.'],
     },
-    topic: {
+    category: {
       type: String,
-      required: true,
+      required: [true, 'Category is required.'],
       enum: ['event', 'help', 'real estate', 'trade', 'transportation'],
     },
     typeOfEvent: {
       type: String,
+      required: [true, 'Type is required.'],
       enum: ['request', 'offer'],
     },
-    fromLocattion: {
+    location: {
       type: String,
-      required: true,
+      required: [true, 'Location is required.'],
     },
     toLocation: {
       type: String,
@@ -30,7 +31,7 @@ const eventSchema = new Schema(
     image: {
       type: String,
     },
-    webURL: {
+    eventURL: {
       type: String,
     },
     createdBy: {
