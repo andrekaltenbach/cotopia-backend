@@ -12,11 +12,11 @@ const commentSchema = new Schema(
       required: [true, 'Comment is required.'],
     },
     event: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'Event',
     },
     createdBy: {
-      type: mongoose.Schema.Type.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
   },
