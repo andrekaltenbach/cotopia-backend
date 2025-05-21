@@ -11,7 +11,7 @@ router.post('/events', isAuthenticated, (req, res, next) => {
   };
 
   Event.create(eventData)
-    .then((response) => res.json(response))
+    .then((response) => res.status(201).json(response))
     .catch((err) => res.json(err));
 });
 

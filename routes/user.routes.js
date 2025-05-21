@@ -16,9 +16,16 @@ router.get('/user/:userId', isAuthenticated, (req, res, next) => {
       res.status(200).json(user);
     })
     .catch((err) => {
-      console.log('ERROR trying to get user');
       res.json(err);
     });
+});
+
+router.delete('/user/:userId', isAuthenticated, (req, res, next) => {
+  const { userId } = req.params;
+
+  User.findByIdAndDelete(userId)
+    .then((deletedUser) => res.json(deletedUser))
+    .catch((err) => res.json(err));
 });
 
 module.exports = router;

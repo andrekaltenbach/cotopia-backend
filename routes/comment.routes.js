@@ -18,7 +18,7 @@ router.post('/events/:eventId/comments', isAuthenticated, (req, res, next) => {
   }
 
   Comment.create(newComment)
-    .then((response) => res.json(response))
+    .then((response) => res.status(201).json(response))
     .catch((err) => res.json(err));
 });
 
