@@ -31,6 +31,7 @@ router.get('/events/:eventId/comments', (req, res, next) => {
   }
 
   Comment.find({ event: eventId })
+    .populate('createdBy')
     .then((comments) => res.json(comments))
     .catch((err) => res.json(err));
 });

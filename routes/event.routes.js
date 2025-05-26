@@ -16,7 +16,10 @@ router.post('/events', isAuthenticated, (req, res, next) => {
 });
 
 router.get('/events', (req, res, next) => {
-  Event.find({})
+  const { category } = req.query;
+  const filter = category ? { category } : {};
+
+  Event.find(filter)
     .populate('createdBy')
     .then((allEvents) => res.json(allEvents))
     .catch((err) => res.json(err));
