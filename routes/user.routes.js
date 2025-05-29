@@ -6,12 +6,13 @@ router.get('/user/:userId', isAuthenticated, (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
-    .then(({ email, name, createdAt, updatedAt }) => {
+    .then(({ email, name, createdAt, updatedAt, _id }) => {
       const user = {
         email,
         name,
         createdAt,
         updatedAt,
+        _id,
       };
       res.status(200).json(user);
     })
